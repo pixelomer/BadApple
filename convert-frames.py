@@ -122,5 +122,5 @@ unlink("video.c")
 
 print("Creating header file...")
 output_file = open("video.h", "wt")
-output_file.write(f'#include \"pongo.h\"\nuint32_t bad_apple_frame_count;\nuint32_t bad_apple_frame_width;\nuint32_t bad_apple_frame_height;\nsize_t bad_apple_decompressed_size;\nuint8_t bad_apple_compressed[{compressed_size}];')
+output_file.write(f'#include \"pongo/pongo.h\"\nuint32_t bad_apple_frame_count;\nuint32_t bad_apple_frame_width;\nuint32_t bad_apple_frame_height;\nsize_t bad_apple_decompressed_size;\nuint8_t bad_apple_compressed[{compressed_size}];')
 output_file.close()
