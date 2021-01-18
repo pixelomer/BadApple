@@ -1,0 +1,6 @@
+*.bin
+*.ld
+.vscode
+**/.DS_Store
+video.h
+video.o
