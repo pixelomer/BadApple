@@ -110,10 +110,6 @@ void play_bad_apple() {
 				remaining--;
 			}
 		}
-		if (remaining == 0xFFFFFFFF) {
-			puts("Remaining byte count can't possibly be 0xFFFFFFFF");
-			break;
-		}
 		uint64_t draw_end = get_ticks();
 		const uint32_t fps = 30;
 		const uint32_t spin_duration = 1000000 / fps; // FPS = 30
