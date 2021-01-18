@@ -6,20 +6,9 @@
 #define ENABLE_SCALING 0
 
 #define min(x,y) (((x)>(y))?(y):(x))
-#define max(x,y) (((x)>(y))?(x):(y))
 
 void *malloc(size_t nbytes);
 void free(void *mem);
-
-void _lzma_free(void *p, void *mem) {
-	if (mem) {
-		free(mem);
-	}
-}
-
-void *_lzma_alloc(void *p, size_t size) {
-	return malloc(size);
-}
 
 void play_bad_apple() {
 	// Decompress the video
