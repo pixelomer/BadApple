@@ -4,3 +4,6 @@
 **/.DS_Store
 /video.h
 /video.o
+video.c
+*.tmp
+bad_apple_compressed
