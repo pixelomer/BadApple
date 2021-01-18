@@ -13,4 +13,4 @@ video.o: bad-apple/video.o
 
 test:
 	python3.8 ../pongoOS/scripts/upload_data.py badapple.bin
-	(printf 'modload\nbadapple\n'; cat) | (../pongoOS/scripts/pongoterm || true)
+	(printf 'modload\nbad_apple\n'; cat) | (../pongoOS/scripts/pongoterm || true)
