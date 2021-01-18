@@ -93,8 +93,6 @@ def convert_frames(dir_path):
 		if relative_path.endswith(".jpg"):
 			print(relative_path)
 			convert_frame(f'{argv[1]}/{relative_path}')
-			if frame_count == 300:
-				break
 
 convert_frames(argv[1])
 commit_byte()
