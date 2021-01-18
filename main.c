@@ -114,7 +114,6 @@ void play_bad_apple() {
 			puts("Remaining byte count can't possibly be 0xFFFFFFFF");
 			break;
 		}
-		//XXX: Is using get_ticks() necessary?
 		uint64_t draw_end = get_ticks();
 		const uint32_t fps = 30;
 		const uint32_t spin_duration = 1000000 / fps; // FPS = 30
