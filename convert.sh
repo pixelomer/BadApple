@@ -8,15 +8,25 @@ if [ -z "$1" ]; then
 	exit 1
 fi
 
-file_size="$(wc -c < "$0" | awk '{print $1}')"
+# pv makes it possible to view the progress of the script. You can install
+# it with one of the following commands:
+#   sudo port install pv   # MacPorts
+#   brew install pv        # brew.sh
+pv() {
+	if command type pv 2> /dev/null >&2; then command pv "$@"; else cat "$@"; fi
+}
+
+file_size="$(wc -c < "$1" | awk '{print $1}')"
 
 echo "Converting GIF to a C file..."
-ln -s "$1" "bundled_gif"
-xxd -i bundled_gif > video.c
-rm bundled_gif
+
+# This method is significantly faster than xxd -i
+printf '#include <stdint.h>\nuint8_t bundled_gif[] =\n' > video.c
+pv "$1" | hexdump -v -e '16/1 "_x%02X" "\n"' | sed 's/_/\\/g; s/\\x  //g; s/.*/    "&"/' >> video.c
+printf ';' >> video.c
 
 echo "Creating the object file..."
-xcrun -sdk iphoneos gcc video.c -c -arch arm64 -mabi=aapcs -nostdlib -O3
+xcrun -sdk iphoneos gcc -c -arch arm64 -mabi=aapcs -nostdlib -O3 video.c
 rm video.c
 
 echo "Creating the header file..."
