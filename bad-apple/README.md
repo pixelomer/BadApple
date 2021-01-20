@@ -1,3 +1,3 @@
 # Bad Apple frames
 
-`video.h` and `video.o` contain the data required to play the Bad Apple video. These files were generated with `convert-frames.py` using frames from [Touhou - Bad Apple!!](https://youtu.be/UkgK8eUdpAo).
+`video.h` and `video.o` contain the GIF data required to play Bad Apple. This GIF data was generated using the video [Touhou - Bad Apple!!](https://youtu.be/UkgK8eUdpAo).
